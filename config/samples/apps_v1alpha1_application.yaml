@@ -1,0 +1,11 @@
+apiVersion: apps.tip.io/v1alpha1
+kind: Application
+metadata:
+  labels:
+    app.kubernetes.io/name: tip
+    app.kubernetes.io/managed-by: kustomize
+  name: application-sample
+  namespace: default
+spec:
+  foo: "nihao"
+  bar: "hello"

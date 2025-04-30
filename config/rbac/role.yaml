@@ -1,0 +1,20 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: manager-role
+rules:
+- apiGroups:
+  - apps.tip.io
+  resources:
+  - applications/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - apps.tip.io
+  resources:
+  - applications/status
+  verbs:
+  - get
+  - patch
+  - update
