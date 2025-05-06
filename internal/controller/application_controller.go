@@ -31,7 +31,7 @@ import (
 	appsv1alpha1 "tip.io/api/v1alpha1"
 )
 
-// ApplicationReconciler reconciles a Application object
+// ApplicationReconciler reconciles an Application object
 type ApplicationReconciler struct {
 	client.Client
 	Scheme *runtime.Scheme
@@ -39,10 +39,12 @@ type ApplicationReconciler struct {
 
 // +kubebuilder:rbac:groups=apps.tip.io,resources=applications/status,verbs=get;update;patch
 // +kubebuilder:rbac:groups=apps.tip.io,resources=applications/finalizers,verbs=update
+// +kubebuilder:rbac:groups=apps.tip.io,resources=applications,verbs=get;list;watch;create;update;patch;delete
+// +kubebuilder:rbac:groups="",resources=pods,verbs=get;list;watch;create;update;patch;delete
+// +kubebuilder:rbac:groups="",resources=pods/status,verbs=get;update;patch
 
 // Reconcile is part of the main kubernetes reconciliation loop which aims to
 // move the current state of the cluster closer to the desired state.
-// +kubebuilder:rbac:groups=apps.tip.io,resources=applications,verbs=get;list;watch;create;update;patch;delete
 // TODO(user): Modify the Reconcile function to compare the state specified by
 // the Application object against the actual cluster state, and then
 // perform operations to make the cluster state reflect the state specified by
